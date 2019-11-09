@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Chart from "../node_modules/chart.js";
 import axios from "axios";
+import API from "./api";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -148,12 +149,10 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-    axios
-      .get("http://localhost:4000/data/getAll")
+    API.getData()
       .then(res => {
         const dat = res.data;
         this.setState({ data: dat });
-        console.log(dat);
       })
       .catch(err => {
         console.log(err);
