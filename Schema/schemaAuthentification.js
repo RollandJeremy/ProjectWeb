@@ -21,7 +21,7 @@ authentificationScheme.methods = {
   authentification: function(password) {
     return passwordHash.verify(password, this.password);
   },
-  token: function() {
+  pass: function() {
     return jwt.encode(this, config.secret);
   }
 };

@@ -20,7 +20,7 @@ async function login(req, res) {
         .status(400)
         .json("L'utilisateur ou le mot de passe est incorrect");
     }
-    return res.status(200).json("Succes");
+    return res.status(200).json({ text: "Succes", pass: find.pass() });
   } catch (error) {
     return res.status(400).json({ error });
   }

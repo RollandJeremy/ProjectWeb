@@ -3,7 +3,6 @@ const passwordHash = require("password-hash");
 
 async function signup(req, res) {
   const { username, password } = req.body;
-
   if (!username || !password) {
     return res.status(400).json({
       text: "Des champs n'ont pas été spécifiés"
@@ -27,9 +26,10 @@ async function signup(req, res) {
   }
   try {
     const dbUser = new User(user);
-    const userObject = await dbUser.save();
+    const userObj = await dbUser.save();
     return res.status(200).json({
-      text: "Succès"
+      text: "Succès",
+      pass: userObj.pass()
     });
   } catch (error) {
     return res.status(500).json({ error });

@@ -17,5 +17,8 @@ export default {
       { username, password },
       { "Content-Type": "application/json" }
     );
+  },
+  isAuthentificated: function() {
+    return localStorage.getItem("pass") !== null;
   }
 };
