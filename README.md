@@ -5,7 +5,7 @@ Then you need to go to the React file.
 Again excute npm -i.
 
 Now open a new terminal and execute "npm start" in the root ( the same place as the first "npm -i").
-This should ask you two information. For both enter "test".
+This should ask you two information. Enter whatever the username and the password we give you in the mail
 
 Finally execute "npm start" in the react folder ( he same place as the second "npm -i").
 
