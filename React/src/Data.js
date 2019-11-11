@@ -123,6 +123,83 @@ class BarChart2 extends React.Component {
   }
 }
 
+class BarChart3 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.canvasRef = React.createRef();
+  }
+
+  componentDidMount() {
+    api.getData().then(res => {
+      var dat = res.data;
+      var age = [
+        "18-20",
+        "21-30",
+        "31-40",
+        "41-50",
+        "51-60",
+        "61-70",
+        "71-80",
+        "81+"
+      ];
+      var number = [0, 0, 0, 0, 0, 0, 0, 0];
+      var index;
+
+      dat.forEach(psycho => {
+        if (psycho.age <= 20) {
+          number[0]++;
+        } else if (psycho.age <= 30) {
+          number[1]++;
+        } else if (psycho.age <= 40) {
+          number[2]++;
+        } else if (psycho.age <= 50) {
+          number[3]++;
+        } else if (psycho.age <= 60) {
+          number[4]++;
+        } else if (psycho.age <= 70) {
+          number[5]++;
+        } else if (psycho.age <= 80) {
+          number[6]++;
+        } else {
+          number[7]++;
+        }
+      });
+      console.log(age);
+      console.log(number);
+      this.myChart = new Chart(this.canvasRef.current, {
+        type: "bar",
+        options: {
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  min: 0,
+                  max: 150
+                }
+              }
+            ]
+          }
+        },
+
+        data: {
+          labels: age.map(d => d),
+          datasets: [
+            {
+              label: "Number of killer by age",
+              data: number.map(d => d),
+              backgroundColor: this.props.color
+            }
+          ]
+        }
+      });
+    });
+  }
+
+  render() {
+    return <canvas ref={this.canvasRef} />;
+  }
+}
 class DoughnutChart extends React.Component {
   constructor(props) {
     super(props);
@@ -261,26 +338,21 @@ export class Data extends React.Component {
 
         <div className="widget1">
           <div className="sub chart-wrapper">
-            <BarChart
-              pays={this.state.pays}
-              kill={this.state.kill1}
-              color="#B08EA2"
-            />
+            <BarChart color="#B08EA2" />
+          </div>
+        </div>
+        <div className="widget3">
+          <div className="sub chart-wrapper">
+            <BarChart3 color="#B08EA2" />
           </div>
         </div>
         <div className="widget2">
           <div className="sub chart-wrapper">
-            <BarChart2
-              arme={this.state.arme}
-              kill={this.state.kill2}
-              color="#B08EA2"
-            />
+            <BarChart2 color="#B08EA2" />
           </div>
 
           <div className="sub chart-wrapper">
             <DoughnutChart
-              arme={this.state.arme}
-              kill={this.state.kill2}
               colors={[
                 "#a8e0ff",
                 "#8ee3f5",
