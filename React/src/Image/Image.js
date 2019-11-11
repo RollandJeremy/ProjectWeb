@@ -9,7 +9,7 @@ const image = (props) => {
             </h3>  
             <p> He has killed {props.nombre} people </p> 
             <div>
-         <a target="_blank" href={props.wiki}>               
+         <a  href={props.wiki}>               
                 <img  src={props.image} height="300" width="200" alt="new"/>
         </a> 
 
