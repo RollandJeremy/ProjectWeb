@@ -58,3 +58,36 @@
   }
 }
 
+.flex-container {
+  display: flex;
+  
+  flex-wrap: wrap;
+}
+    
+ .Signinup {
+        color : ghostwhite;
+        padding : 5px 0px 5px 0px;
+        font-family: Didot; 
+        border-radius: 5px;
+        text-align: center;
+        font-size: 25px;
+ }
+
+
+   
+
+
+   
+footer {
+        background-color: ghostwhite;
+  }
+
+
+
+
+
+    
+    .body_login {
+        background-image: linear-gradient(to right bottom, #00CEED,#00B1ED, #0059ED, #d8c7ff);
+    }
+
