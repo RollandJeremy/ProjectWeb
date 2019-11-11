@@ -1,11 +1,22 @@
 .App {
   text-align: center;
-  background-color: rgb(26, 39, 99);
+  background-color: rgb(116, 138, 238);
 }
 
 .App-logo {
   height: 40vmin;
 }
+
+.widget1{
+  background-color: rgb(86, 106, 194) ;
+  border: 3px solid blue;
+}
+
+.widget2{
+  background-color: rgb(86, 106, 194) ;
+  border: 3px solid blue;
+}
+
 
 .App-header {
   background-color: #282c34;
@@ -46,3 +57,4 @@
     width: 96%;
   }
 }
+
