@@ -12,6 +12,11 @@ export class Signinup extends React.Component {
     }
   };
 
+
+  click2 = async()=>{
+   
+  };
+
   render() {
     return (
       <html>
@@ -19,18 +24,43 @@ export class Signinup extends React.Component {
 
         </head>
         <body className="body_login">
-      <div className="Signinup">
-        <h1>LOGIN REGISTER</h1>
-        <text>Username</text><br />
-        <input type="text" name="username"></input>
-        <br />
-        <text>Password</text><br />
-        <input type="text" name="password"></input>
-        <br />
-        <button onClick={this.click} type="submit">
-          Connexion
-        </button>
+      
+      <div className="flex_container">
+        
+          <div className="Signinup">
+            <h1>LOGIN </h1>
+            <text>Username</text><br />
+            <input type="text" name="username"></input>
+            <br />
+            <text>Password</text><br />
+            <input type="text" name="password"></input>
+            <br />
+            <button onClick={this.click} type="submit">
+              Connexion
+            </button>
+          </div>
+        
+        
+
+     
+          <div className="Signinup">
+            <h1>REGISTER</h1>
+            <text>Username</text><br />
+            <input type="text" name="username"></input>
+            <br />
+            <text>Password</text><br />
+            <input type="text" name="password"></input>
+            <br />
+            <button onClick={this.click2} type="submit">
+              Connexion
+            </button>
+          </div>
+     
       </div>
+        
+
+
+      
       <footer>
       <address>
           Contact:<br />
