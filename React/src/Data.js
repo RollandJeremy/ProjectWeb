@@ -294,7 +294,6 @@ class DoughnutChart3 extends React.Component {
   componentDidMount() {
     api.getData().then(res => {
       var dat = res.data;
-      console.log(dat);
       var jail = ["Jail", "Free", "Dead"];
       var number = [0, 0, 0];
 
