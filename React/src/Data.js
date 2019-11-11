@@ -1,4 +1,3 @@
-//C'est l'ancienne App de Vincent avec les schémas
 import React from "react";
 import Chart from "../node_modules/chart.js";
 
@@ -143,7 +142,6 @@ class BarChart3 extends React.Component {
         "81+"
       ];
       var number = [0, 0, 0, 0, 0, 0, 0, 0];
-      var index;
 
       dat.forEach(psycho => {
         if (psycho.age <= 20) {
@@ -164,8 +162,6 @@ class BarChart3 extends React.Component {
           number[7]++;
         }
       });
-      console.log(age);
-      console.log(number);
       this.myChart = new Chart(this.canvasRef.current, {
         type: "bar",
         options: {
@@ -233,7 +229,95 @@ class DoughnutChart extends React.Component {
           labels: arme.map(d => d),
           datasets: [
             {
+              label: "Number of killer by age",
               data: kill.map(d => d),
+              backgroundColor: this.props.colors
+            }
+          ]
+        }
+      });
+    });
+  }
+  render() {
+    return <canvas ref={this.canvasRef} />;
+  }
+}
+
+class DoughnutChart2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.canvasRef = React.createRef();
+  }
+
+  componentDidMount() {
+    api.getData().then(res => {
+      var dat = res.data;
+      var dead = ["Psycopath alive", "Pyscopath dead"];
+      var number = [0, 0];
+
+      dat.forEach(psycho => {
+        if (psycho.statut === "Alive") {
+          number[0]++;
+        } else if (psycho.statut === "Dead") {
+          number[1]++;
+        }
+      });
+
+      this.myChart = new Chart(this.canvasRef.current, {
+        type: "doughnut",
+        options: {
+          maintainAspectRatio: false
+        },
+        data: {
+          labels: dead.map(d => d),
+          datasets: [
+            {
+              data: number.map(d => d),
+              backgroundColor: this.props.colors
+            }
+          ]
+        }
+      });
+    });
+  }
+  render() {
+    return <canvas ref={this.canvasRef} />;
+  }
+}
+
+class DoughnutChart3 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.canvasRef = React.createRef();
+  }
+
+  componentDidMount() {
+    api.getData().then(res => {
+      var dat = res.data;
+      console.log(dat);
+      var jail = ["Jail", "Free", "Dead"];
+      var number = [0, 0, 0];
+
+      dat.forEach(psycho => {
+        if (psycho.actual === "Jail") {
+          number[0]++;
+        } else if (psycho.actual === "Free") {
+          number[1]++;
+        } else if (psycho.actual === "xxx") {
+          number[2]++;
+        }
+      });
+
+      this.myChart = new Chart(this.canvasRef.current, {
+        type: "doughnut",
+        options: {
+          maintainAspectRatio: false
+        },
+        data: {
+          labels: jail.map(d => d),
+          datasets: [
+            {
+              data: number.map(d => d),
               backgroundColor: this.props.colors
             }
           ]
@@ -366,6 +450,16 @@ export class Data extends React.Component {
                 "#24D91E"
               ]}
             />
+          </div>
+        </div>
+
+        <div>
+          <div className="sub chart-wrapper">
+            <DoughnutChart2 colors={["#a8e0ff", "#70cad1"]} />
+          </div>
+
+          <div className="sub chart-wrapper">
+            <DoughnutChart3 colors={["#a8e0ff", "#8ee3f5", "#70cad1"]} />
           </div>
         </div>
         <h2>List of somes of the most famous serial killers</h2>
