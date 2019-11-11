@@ -13,6 +13,6 @@ It will open your browser.
 You have two possibilities : login or register. You need to register yourself first.
 Then you can log yourself.
 Once you are redirected with the page with all our widgets.
-All the grahs are created with the database we generated before.
+All the graphics are created with the database we generated before.
 
 The pictures in the last part are links to the wikipedia of the killers displayed.
