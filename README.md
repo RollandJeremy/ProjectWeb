@@ -1,4 +1,4 @@
-# Projet
+# Project
 Access to the folder with the terminal
 Then execute "npm i" to install the modules required
 Then you need to go to the React file
